@@ -23,7 +23,7 @@ This is a dummy description of this app features
 
 ## Pantaila-argazkiak
 
-![Nextcloud Talk signaling server(r)en pantaila-argazkia](./doc/screenshots/example.jpg)
+![Nextcloud Talk signaling server(r)en pantaila-argazkia](./doc/screenshots/nextcloud-hub7-talk-preview.webp)
 
 ## Dokumentazioa eta baliabideak
 

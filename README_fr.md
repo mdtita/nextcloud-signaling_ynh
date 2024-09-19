@@ -23,7 +23,7 @@ Ceci est une fausse description des fonctionalités de l'app
 
 ## Captures d’écran
 
-![Capture d’écran de Nextcloud Talk signaling server](./doc/screenshots/example.jpg)
+![Capture d’écran de Nextcloud Talk signaling server](./doc/screenshots/nextcloud-hub7-talk-preview.webp)
 
 ## Documentations et ressources
 

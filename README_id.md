@@ -23,7 +23,7 @@ This is a dummy description of this app features
 
 ## Tangkapan Layar
 
-![Tangkapan Layar pada Nextcloud Talk signaling server](./doc/screenshots/example.jpg)
+![Tangkapan Layar pada Nextcloud Talk signaling server](./doc/screenshots/nextcloud-hub7-talk-preview.webp)
 
 ## Dokumentasi dan sumber daya
 

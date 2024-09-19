@@ -23,7 +23,7 @@ This is a dummy description of this app features
 
 ## 截图
 
-![Nextcloud Talk signaling server 的截图](./doc/screenshots/example.jpg)
+![Nextcloud Talk signaling server 的截图](./doc/screenshots/nextcloud-hub7-talk-preview.webp)
 
 ## 文档与资源
 

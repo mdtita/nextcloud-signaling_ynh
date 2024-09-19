@@ -23,7 +23,7 @@ This is a dummy description of this app features
 
 ## Schermafdrukken
 
-![Schermafdrukken van Nextcloud Talk signaling server](./doc/screenshots/example.jpg)
+![Schermafdrukken van Nextcloud Talk signaling server](./doc/screenshots/nextcloud-hub7-talk-preview.webp)
 
 ## Documentatie en bronnen
 

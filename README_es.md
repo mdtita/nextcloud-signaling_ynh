@@ -23,7 +23,7 @@ This is a dummy description of this app features
 
 ## Capturas
 
-![Captura de Nextcloud Talk signaling server](./doc/screenshots/example.jpg)
+![Captura de Nextcloud Talk signaling server](./doc/screenshots/nextcloud-hub7-talk-preview.webp)
 
 ## Documentaciones y recursos
 

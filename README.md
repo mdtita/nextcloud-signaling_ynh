@@ -23,7 +23,7 @@ This is a dummy description of this app features
 
 ## Screenshots
 
-![Screenshot of Nextcloud Talk signaling server](./doc/screenshots/example.jpg)
+![Screenshot of Nextcloud Talk signaling server](./doc/screenshots/nextcloud-hub7-talk-preview.webp)
 
 ## Documentation and resources
 
