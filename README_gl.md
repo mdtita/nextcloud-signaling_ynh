@@ -16,7 +16,7 @@ NON debe editarse manualmente.
 
 ## Vista xeral
 
-This is a dummy description of this app features
+Improve performances and reliability of Nextcloud Talk. You should be able to make video calls with more than 3 persons.
 
 
 **Versión proporcionada:** 2.0.0~ynh1
