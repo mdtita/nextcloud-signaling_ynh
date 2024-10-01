@@ -2,7 +2,7 @@
 
 packaging_format = 2
 
-id = "nextcloud-spreed-signaling"
+id = "nextcloud-signaling"
 name = "Nextcloud Talk signaling server"
 description.en = "Standalone signaling server in order to meet more than 3 persons onto Nextcloud Talk"
 description.fr = "Expliquez en *quelques* (10~15) mots l'utilité de l'app ou ce qu'elle fait (l'objectif est de donner une idée grossière pour des utilisateurs qui naviguent dans un catalogue de 100+ apps)"
@@ -36,19 +36,26 @@ ram.runtime = "50M"
     [install.path]
     # this is a generic question - ask strings are automatically handled by YunoHost's core
     type = "path"
-    default = "/example"
+    default = "/standalone-signaling"
 
-    [install.turnapikey]
+    [install.backend_urls]
+    ask.en = "Nextcloud instances urls (one by line)"
+    type = "text"
+    
+    [install.turn_endpoints]
+    ask.en = "TURN server endpoints"
+    type = "string"
+    example = "turn:domain.tld:3478?transport=udp,turn:domain.tld:3478?transport=tcp"
+    description.en = "You need at least one coturn or eturn servers. coturn is packaged for yunohost so you probably should install it somewhere first."
+    
+    [install.turn_api_key]
     ask.en = "TURN API key"
     type = "string"
 
-    [install.turnsecret]
+    [install.turn_secret]
     ask.en = "TURN secret"
     type = "string"
 
-    [install.turnservers]
-    ask.en = "TURN servers"
-    type = "string"
 
 [resources]
     # See the packaging documentation for the full set
@@ -84,7 +91,9 @@ ram.runtime = "50M"
 
     [resources.ports]
     # This will pick a random port for reverse-proxying and store it as the $port setting
-    janus.default = 8188
+    main.default = 8080
+    janus_http.default = 8188
+    janus_ws.default = 8188
     nats.default = 4222
 
     [resources.apt]
