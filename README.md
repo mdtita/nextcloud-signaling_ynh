@@ -5,9 +5,9 @@ It shall NOT be edited by hand.
 
 # Nextcloud Talk signaling server for YunoHost
 
-[![Integration level](https://dash.yunohost.org/integration/nextcloud-spreed-signaling.svg)](https://ci-apps.yunohost.org/ci/apps/nextcloud-spreed-signaling/) ![Working status](https://ci-apps.yunohost.org/ci/badges/nextcloud-spreed-signaling.status.svg) ![Maintenance status](https://ci-apps.yunohost.org/ci/badges/nextcloud-spreed-signaling.maintain.svg)
+[![Integration level](https://dash.yunohost.org/integration/nextcloud-signaling.svg)](https://ci-apps.yunohost.org/ci/apps/nextcloud-signaling/) ![Working status](https://ci-apps.yunohost.org/ci/badges/nextcloud-signaling.status.svg) ![Maintenance status](https://ci-apps.yunohost.org/ci/badges/nextcloud-signaling.maintain.svg)
 
-[![Install Nextcloud Talk signaling server with YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=nextcloud-spreed-signaling)
+[![Install Nextcloud Talk signaling server with YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=nextcloud-signaling)
 
 *[Read this README in other languages.](./ALL_README.md)*
 
@@ -28,19 +28,19 @@ Improve performances and reliability of Nextcloud Talk. You should be able to ma
 ## Documentation and resources
 
 - Upstream app code repository: <https://github.com/strukturag/nextcloud-spreed-signaling>
-- YunoHost Store: <https://apps.yunohost.org/app/nextcloud-spreed-signaling>
-- Report a bug: <https://github.com/YunoHost-Apps/nextcloud-spreed-signaling_ynh/issues>
+- YunoHost Store: <https://apps.yunohost.org/app/nextcloud-signaling>
+- Report a bug: <https://github.com/YunoHost-Apps/nextcloud-signaling_ynh/issues>
 
 ## Developer info
 
-Please send your pull request to the [`testing` branch](https://github.com/YunoHost-Apps/nextcloud-spreed-signaling_ynh/tree/testing).
+Please send your pull request to the [`testing` branch](https://github.com/YunoHost-Apps/nextcloud-signaling_ynh/tree/testing).
 
 To try the `testing` branch, please proceed like that:
 
 ```bash
-sudo yunohost app install https://github.com/YunoHost-Apps/nextcloud-spreed-signaling_ynh/tree/testing --debug
+sudo yunohost app install https://github.com/YunoHost-Apps/nextcloud-signaling_ynh/tree/testing --debug
 or
-sudo yunohost app upgrade nextcloud-spreed-signaling -u https://github.com/YunoHost-Apps/nextcloud-spreed-signaling_ynh/tree/testing --debug
+sudo yunohost app upgrade nextcloud-signaling -u https://github.com/YunoHost-Apps/nextcloud-signaling_ynh/tree/testing --debug
 ```
 
 **More info regarding app packaging:** <https://yunohost.org/packaging_apps>

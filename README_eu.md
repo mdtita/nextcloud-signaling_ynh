@@ -5,9 +5,9 @@ EZ editatu eskuz.
 
 # Nextcloud Talk signaling server YunoHost-erako
 
-[![Integrazio maila](https://dash.yunohost.org/integration/nextcloud-spreed-signaling.svg)](https://ci-apps.yunohost.org/ci/apps/nextcloud-spreed-signaling/) ![Funtzionamendu egoera](https://ci-apps.yunohost.org/ci/badges/nextcloud-spreed-signaling.status.svg) ![Mantentze egoera](https://ci-apps.yunohost.org/ci/badges/nextcloud-spreed-signaling.maintain.svg)
+[![Integrazio maila](https://dash.yunohost.org/integration/nextcloud-signaling.svg)](https://ci-apps.yunohost.org/ci/apps/nextcloud-signaling/) ![Funtzionamendu egoera](https://ci-apps.yunohost.org/ci/badges/nextcloud-signaling.status.svg) ![Mantentze egoera](https://ci-apps.yunohost.org/ci/badges/nextcloud-signaling.maintain.svg)
 
-[![Instalatu Nextcloud Talk signaling server YunoHost-ekin](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=nextcloud-spreed-signaling)
+[![Instalatu Nextcloud Talk signaling server YunoHost-ekin](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=nextcloud-signaling)
 
 *[Irakurri README hau beste hizkuntzatan.](./ALL_README.md)*
 
@@ -28,19 +28,19 @@ Improve performances and reliability of Nextcloud Talk. You should be able to ma
 ## Dokumentazioa eta baliabideak
 
 - Jatorrizko aplikazioaren kode-gordailua: <https://github.com/strukturag/nextcloud-spreed-signaling>
-- YunoHost Denda: <https://apps.yunohost.org/app/nextcloud-spreed-signaling>
-- Eman errore baten berri: <https://github.com/YunoHost-Apps/nextcloud-spreed-signaling_ynh/issues>
+- YunoHost Denda: <https://apps.yunohost.org/app/nextcloud-signaling>
+- Eman errore baten berri: <https://github.com/YunoHost-Apps/nextcloud-signaling_ynh/issues>
 
 ## Garatzaileentzako informazioa
 
-Bidali `pull request`a [`testing` abarrera](https://github.com/YunoHost-Apps/nextcloud-spreed-signaling_ynh/tree/testing).
+Bidali `pull request`a [`testing` abarrera](https://github.com/YunoHost-Apps/nextcloud-signaling_ynh/tree/testing).
 
 `testing` abarra probatzeko, ondorengoa egin:
 
 ```bash
-sudo yunohost app install https://github.com/YunoHost-Apps/nextcloud-spreed-signaling_ynh/tree/testing --debug
+sudo yunohost app install https://github.com/YunoHost-Apps/nextcloud-signaling_ynh/tree/testing --debug
 edo
-sudo yunohost app upgrade nextcloud-spreed-signaling -u https://github.com/YunoHost-Apps/nextcloud-spreed-signaling_ynh/tree/testing --debug
+sudo yunohost app upgrade nextcloud-signaling -u https://github.com/YunoHost-Apps/nextcloud-signaling_ynh/tree/testing --debug
 ```
 
 **Informazio gehiago aplikazioaren paketatzeari buruz:** <https://yunohost.org/packaging_apps>

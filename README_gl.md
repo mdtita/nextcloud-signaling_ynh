@@ -5,9 +5,9 @@ NON debe editarse manualmente.
 
 # Nextcloud Talk signaling server para YunoHost
 
-[![Nivel de integración](https://dash.yunohost.org/integration/nextcloud-spreed-signaling.svg)](https://ci-apps.yunohost.org/ci/apps/nextcloud-spreed-signaling/) ![Estado de funcionamento](https://ci-apps.yunohost.org/ci/badges/nextcloud-spreed-signaling.status.svg) ![Estado de mantemento](https://ci-apps.yunohost.org/ci/badges/nextcloud-spreed-signaling.maintain.svg)
+[![Nivel de integración](https://dash.yunohost.org/integration/nextcloud-signaling.svg)](https://ci-apps.yunohost.org/ci/apps/nextcloud-signaling/) ![Estado de funcionamento](https://ci-apps.yunohost.org/ci/badges/nextcloud-signaling.status.svg) ![Estado de mantemento](https://ci-apps.yunohost.org/ci/badges/nextcloud-signaling.maintain.svg)
 
-[![Instalar Nextcloud Talk signaling server con YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=nextcloud-spreed-signaling)
+[![Instalar Nextcloud Talk signaling server con YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=nextcloud-signaling)
 
 *[Le este README en outros idiomas.](./ALL_README.md)*
 
@@ -28,19 +28,19 @@ Improve performances and reliability of Nextcloud Talk. You should be able to ma
 ## Documentación e recursos
 
 - Repositorio de orixe do código: <https://github.com/strukturag/nextcloud-spreed-signaling>
-- Tenda YunoHost: <https://apps.yunohost.org/app/nextcloud-spreed-signaling>
-- Informar dun problema: <https://github.com/YunoHost-Apps/nextcloud-spreed-signaling_ynh/issues>
+- Tenda YunoHost: <https://apps.yunohost.org/app/nextcloud-signaling>
+- Informar dun problema: <https://github.com/YunoHost-Apps/nextcloud-signaling_ynh/issues>
 
 ## Info de desenvolvemento
 
-Envía a túa colaboración á [rama `testing`](https://github.com/YunoHost-Apps/nextcloud-spreed-signaling_ynh/tree/testing).
+Envía a túa colaboración á [rama `testing`](https://github.com/YunoHost-Apps/nextcloud-signaling_ynh/tree/testing).
 
 Para probar a rama `testing`, procede deste xeito:
 
 ```bash
-sudo yunohost app install https://github.com/YunoHost-Apps/nextcloud-spreed-signaling_ynh/tree/testing --debug
+sudo yunohost app install https://github.com/YunoHost-Apps/nextcloud-signaling_ynh/tree/testing --debug
 ou
-sudo yunohost app upgrade nextcloud-spreed-signaling -u https://github.com/YunoHost-Apps/nextcloud-spreed-signaling_ynh/tree/testing --debug
+sudo yunohost app upgrade nextcloud-signaling -u https://github.com/YunoHost-Apps/nextcloud-signaling_ynh/tree/testing --debug
 ```
 
 **Máis info sobre o empaquetado da app:** <https://yunohost.org/packaging_apps>
