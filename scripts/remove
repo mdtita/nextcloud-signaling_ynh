@@ -34,6 +34,8 @@ ynh_safe_rm "/etc/nats-server.conf"
 ynh_safe_rm "/etc/janus"
 ynh_safe_rm "/etc/$app"
 
+ynh_go_remove
+
 #=================================================
 # END OF SCRIPT
 #=================================================

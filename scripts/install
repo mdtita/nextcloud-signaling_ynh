@@ -19,9 +19,10 @@ ynh_app_setting_set --key=block_key --value=$block_key
 # Backend password generation
 while IFS= read -r backend_url
 do 
-    local backend_id=$(echo $backend_url | sed s@^https://@@ | sed s/\./-/g | sed s@/@-@g)
-    declare "pwd__${backend_id}"=$(ynh_string_random)
-    ynh_app_setting_set --key=pwd__${backend_id} --value=$pwd
+    backend_id=$(echo $backend_url | sed s@^https://@@ | sed 's/[.-]/_/g' | sed s@/@_@g)
+    varname="pwd__${backend_id}"
+    declare "$varname"=$(ynh_string_random)
+    ynh_app_setting_set --key=$varname --value=${!varname}
 done <<< "$backends_urls"
 
 #=================================================
@@ -39,9 +40,16 @@ chown -R "$app:www-data" "$install_dir"
 #=================================================
 ynh_script_progression "Building go nextcloud signaling server..."
 
+ynh_go_install
+chmod u+x /etc/profile.d/goenv.sh
+/etc/profile.d/goenv.sh
+
+GOCACHE=/opt/goenv/cache
+export GOCACHE
 pushd $install_dir
 make build
 popd
+ynh_go_remove
 #=================================================
 # APP INITIAL CONFIGURATION
 #=================================================
@@ -54,12 +62,12 @@ chmod -R 400 "/etc/$app"
 chown -R "$app:$app" "/etc/$app"
 
 # Janus
+mkdir -p /etc/janus
 ynh_config_add --template="janus.jcfg" --destination="/etc/janus/janus.jcfg"
 ynh_config_add --template="janus.transport.http.jcfg" --destination="/etc/janus/janus.transport.http.jcfg"
 ynh_config_add --template="janus.transport.websockets.jcfg" --destination="/etc/janus/janus.transport.websockets.jcfg"
 
 chmod -R 400 "/etc/janus"
-chown -R "janus:janus" "/etc/janus"
 
 # Nats-server
 ynh_config_add --template="nats-server.conf" --destination="/etc/nats-server.conf"

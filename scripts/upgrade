@@ -67,7 +67,6 @@ ynh_config_add --template="janus.transport.http.jcfg" --destination="/etc/janus/
 ynh_config_add --template="janus.transport.websockets.jcfg" --destination="/etc/janus/janus.transport.websockets.jcfg"
 
 chmod -R 400 "/etc/janus"
-chown -R "janus:janus" "/etc/janus"
 
 # Nats-server
 ynh_config_add --template="nats-server.conf" --destination="/etc/nats-server.conf"

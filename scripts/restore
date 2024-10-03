@@ -31,7 +31,6 @@ chown -R "$app:$app" "/etc/$app"
 ynh_restore "/etc/janus/janus.jcfg"
 ynh_restore "/etc/janus/janus.transport.http.jcfg"
 ynh_restore "/etc/janus/janus.transport.websockets.jcfg"
-chown -R "janus:janus" "/etc/janus"
 
 # Nats-server
 ynh_restore "/etc/nats-server.conf"

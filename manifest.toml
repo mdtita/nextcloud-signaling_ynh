@@ -40,7 +40,7 @@ ram.runtime = "50M"
 
     [install.backends_urls]
     ask.en = "Backends urls"
-    type = "text"
+    type = "string"
     example = "https://cloud.example.com"
     help = "List one Nextcloud instance by line to allow its to use this signaling server"
     
@@ -48,7 +48,7 @@ ram.runtime = "50M"
     ask.en = "TURN server endpoints"
     type = "string"
     example = "turn:domain.tld:3478?transport=udp,turn:domain.tld:3478?transport=tcp"
-    description.en = "You need at least one coturn or eturn servers. coturn is packaged for yunohost so you probably should install it somewhere first."
+    help.en = "You need at least one coturn or eturn servers. coturn is packaged for yunohost so you probably should install it somewhere first."
     
     [install.turn_api_key]
     ask.en = "TURN API key"
@@ -93,7 +93,7 @@ ram.runtime = "50M"
 
     [resources.ports]
     # This will pick a random port for reverse-proxying and store it as the $port setting
-    main.default = 8080
+    main.default = 8080
     janus_http.default = 8188
     janus_ws.default = 8188
     nats.default = 4222
@@ -101,4 +101,4 @@ ram.runtime = "50M"
     [resources.apt]
     # This will automatically install/uninstall the following apt packages
     # and implicitly define the $phpversion setting as 8.0 (if phpX.Y-foobar dependencies are listed)
-    packages = "automake golang build-essential python3 protobuf-compiler nats-server janus"
+    packages = "automake build-essential python3 protobuf-compiler nats-server janus"

@@ -45,11 +45,12 @@ set__backends_urls() {
     # Backend password generation
     while IFS= read -r backend_url
     do 
-        local backend_id=$(echo $backend_url | sed s@^https://@@ | sed s/\./-/g | sed s@/@-@g)
+        local backend_id=$(echo $backend_url | sed s@^https://@@ | sed 's/[.-]/_/g' | sed s@/@_@g)
         if [[ "$(ynh_app_setting_get --key=pwd__${backend_id})" == "" ]]
         then
-            declare "pwd__${backend_id}"=$(ynh_string_random)
-            ynh_app_setting_set --key=pwd__${backend_id} --value=$pwd
+            local varname="pwd__${backend_id}"
+            declare "$varname"=$(ynh_string_random)
+            ynh_app_setting_set --key=$varname --value=${!varname}
         fi
     done <<< "$backends_urls"
     ynh_add_config --jinja --template="server.conf" --destination="/etc/$app/server.conf"
