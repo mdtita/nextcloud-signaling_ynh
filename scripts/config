@@ -25,7 +25,13 @@ install_dir=$(ynh_app_setting_get --key=install_dir)
 #=================================================
 # SPECIFIC GETTERS FOR TOML SHORT KEY
 #=================================================
-
+get__backends_urls() {
+    local backends=$(grep -E '^backends\s+=\s+' /etc/$app/server.conf | cut -d= -f2 | sed 's/ //g')
+    for backend in ${backends//,/ }
+    do
+        sed -n '/\'${backend}'\]/,$p' /etc/$app/server.conf | grep -E -v "^(#|$)" | grep -m1 -E 'url\s+=\s+' | cut -d= -f2 | xargs
+    done
+}
 
 #=================================================
 # SPECIFIC VALIDATORS FOR TOML SHORT KEYS
@@ -34,6 +40,31 @@ install_dir=$(ynh_app_setting_get --key=install_dir)
 #=================================================
 # SPECIFIC SETTERS FOR TOML SHORT KEYS
 #=================================================
+set__backends_urls() {
+
+    # Backend password generation
+    while IFS= read -r backend_url
+    do 
+        local backend_id=$(echo $backend_url | sed s@^https://@@ | sed s/\./-/g | sed s@/@-@g)
+        if [[ "$(ynh_app_setting_get --key=pwd__${backend_id})" == "" ]]
+        then
+            declare "pwd__${backend_id}"=$(ynh_string_random)
+            ynh_app_setting_set --key=pwd__${backend_id} --value=$pwd
+        fi
+    done <<< "$backends_urls"
+    ynh_add_config --jinja --template="server.conf" --destination="/etc/$app/server.conf"
+}
+#=================================================
+# SPECIFIC ACTIONS
+#=================================================
+run__get_secrets() {
+    local backends=$(grep -E '^backends\s+=\s+' /etc/$app/server.conf | cut -d= -f2 | sed 's/ //g')
+    for backend in ${backends//,/ }
+    do
+        sed -n '/\'${backend}'\]/,$p' /etc/$app/server.conf | grep -E -v "^(#|$)" | grep -m1 -E 'url\s+=\s+' | cut -d= -f2 | xargs
+        sed -n '/\'${backend}'\]/,$p' /etc/$app/server.conf | grep -E -v "^(#|$)" | grep -m1 -E 'secret\s+=\s+' | cut -d= -f2 | xargs
+    done
+}
 
 #=================================================
 ynh_app_config_run "$1"

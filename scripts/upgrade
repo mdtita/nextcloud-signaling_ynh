@@ -57,7 +57,7 @@ ynh_script_progression "Updating $app's configuration files..."
 
 # Signaling server
 mkdir -p /etc/$app/
-ynh_config_add --template="server.conf" --destination="/etc/$app/server.conf"
+ynh_config_add --jinja --template="server.conf" --destination="/etc/$app/server.conf"
 chmod -R 400 "/etc/$app"
 chown -R "$app:$app" "/etc/$app"
 

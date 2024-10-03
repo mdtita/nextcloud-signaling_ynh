@@ -38,9 +38,11 @@ ram.runtime = "50M"
     type = "path"
     default = "/standalone-signaling"
 
-    [install.backend_urls]
-    ask.en = "Nextcloud instances urls (one by line)"
+    [install.backends_urls]
+    ask.en = "Backends urls"
     type = "text"
+    example = "https://cloud.example.com"
+    help = "List one Nextcloud instance by line to allow its to use this signaling server"
     
     [install.turn_endpoints]
     ask.en = "TURN server endpoints"

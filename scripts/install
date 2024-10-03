@@ -11,14 +11,18 @@ source /usr/share/yunohost/helpers
 # INITIALIZE AND STORE SETTINGS
 #=================================================
 
-# If you need to, you can define custom settings
-# (or remove this section entirely if not relevant for you)
 hash_key=$(ynh_string_random --length=64)
 block_key=$(ynh_string_random --length=32)
-nextcloud_instance_secret=$(ynh_string_random)
 ynh_app_setting_set --key=hash_key --value=$hash_key
 ynh_app_setting_set --key=block_key --value=$block_key
-ynh_app_setting_set --key=hash_key --value=$nextcloud_instance_secret
+
+# Backend password generation
+while IFS= read -r backend_url
+do 
+    local backend_id=$(echo $backend_url | sed s@^https://@@ | sed s/\./-/g | sed s@/@-@g)
+    declare "pwd__${backend_id}"=$(ynh_string_random)
+    ynh_app_setting_set --key=pwd__${backend_id} --value=$pwd
+done <<< "$backends_urls"
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
@@ -45,7 +49,7 @@ ynh_script_progression "Adding $app's configuration files..."
 
 # Signaling server
 mkdir -p /etc/$app/
-ynh_config_add --template="server.conf" --destination="/etc/$app/server.conf"
+ynh_config_add --jinja --template="server.conf" --destination="/etc/$app/server.conf"
 chmod -R 400 "/etc/$app"
 chown -R "$app:$app" "/etc/$app"
 

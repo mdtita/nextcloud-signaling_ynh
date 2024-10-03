@@ -1,0 +1,46 @@
+#:schema https://github.com/YunoHost/apps/raw/master/schemas/config_panel.v1.schema.json
+
+version = "1.0"
+
+[main]
+services = ["__APP__"]
+    [main.nextcloud]
+    name = "Authorization"
+    services = ["__APP__"]
+    optional = false
+        [main.nextcloud.backends_urls]
+        ask.en = "Backends urls"
+        type = "text"
+        example = "https://cloud.example.com"
+        help = "List one Nextcloud instances by line to allow its to use this signaling server"
+        
+        [main.nextcloud.get_secrets]
+        ask.en = "Display secrets"
+        type = "button"
+        help = "Click here to get secrets to configure in your nextcloud instances"
+
+    [main.turn]
+    name.en = "TURN configuration"
+    services = ["__APP__"]
+    optional = false
+        
+        [main.turn.turn_endpoints]
+        ask.en = "TURN server endpoints"
+        type = "string"
+        bind = "apikey>servers:/etc/__APP__/server.conf"
+        example = "turn:domain.tld:3478?transport=udp,turn:domain.tld:3478?transport=tcp"
+        help = "You can fill several endpoints like this `turn:domain.tld:3478?transport=udp,turn:domain.tld:3478?transport=tcp`"
+        pattern.regexp = '^\w{3,30}$'
+        pattern.error = "The name should be at least 3 chars and less than 30 chars. Alphanumeric chars are accepted"
+        
+        [main.turn.turn_api_key]
+        ask.en = "TURN API key"
+        type = "string"
+        bind = "apikey:/etc/__APP__/server.conf"
+        
+        [main.turn.turn_secret]
+        ask.en = "TURN secret"
+        type = "string"
+        bind = "apikey>secret:/etc/__APP__/server.conf"
+        help = "The shared secret to use for generating TURN credentials. This must be the same as on the TURN server."
+        redact = true
