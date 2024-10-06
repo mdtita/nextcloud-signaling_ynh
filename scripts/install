@@ -33,7 +33,7 @@ ynh_script_progression "Setting up source files..."
 # Download, check integrity, uncompress and patch the source from manifest.toml
 ynh_setup_source --dest_dir="$install_dir"
 
-chown -R "$app:www-data" "$install_dir"
+chown -R "$app:$app" "$install_dir"
 
 #=================================================
 # BUILD
@@ -50,6 +50,8 @@ pushd $install_dir
 make build
 popd
 ynh_go_remove
+chown -R "$app:$app" "$install_dir"
+
 #=================================================
 # APP INITIAL CONFIGURATION
 #=================================================
@@ -59,6 +61,7 @@ ynh_script_progression "Adding $app's configuration files..."
 mkdir -p /etc/$app/
 ynh_config_add --jinja --template="server.conf" --destination="/etc/$app/server.conf"
 chmod -R 400 "/etc/$app"
+chmod u+x "/etc/$app"
 chown -R "$app:$app" "/etc/$app"
 
 # Janus

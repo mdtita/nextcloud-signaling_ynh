@@ -46,9 +46,17 @@ chown -R "$app:www-data" "$install_dir"
 #=================================================
 ynh_script_progression "Building go nextcloud signaling server..."
 
+ynh_go_install
+chmod u+x /etc/profile.d/goenv.sh
+/etc/profile.d/goenv.sh
+
+GOCACHE=/opt/goenv/cache
+export GOCACHE
 pushd $install_dir
 make build
 popd
+ynh_go_remove
+chown -R "$app:$app" "$install_dir"
 
 #=================================================
 # UPDATE A CONFIG FILE
@@ -59,6 +67,7 @@ ynh_script_progression "Updating $app's configuration files..."
 mkdir -p /etc/$app/
 ynh_config_add --jinja --template="server.conf" --destination="/etc/$app/server.conf"
 chmod -R 400 "/etc/$app"
+chmod u+x "/etc/$app"
 chown -R "$app:$app" "/etc/$app"
 
 # Janus

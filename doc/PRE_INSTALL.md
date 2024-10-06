@@ -1,1 +1,1 @@
-This is a dummy disclaimer to display prior to the install
+If you want good performances, you need a coturn server running on 443 port.
