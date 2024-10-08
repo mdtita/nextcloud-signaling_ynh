@@ -19,7 +19,7 @@ It shall NOT be edited by hand.
 Improve performances and reliability of Nextcloud Talk. You should be able to make video calls with more than 3 persons.
 
 
-**Shipped version:** 2.0.0~ynh1
+**Shipped version:** 2.0.0~ynh2
 
 ## Screenshots
 
@@ -27,7 +27,7 @@ Improve performances and reliability of Nextcloud Talk. You should be able to ma
 
 ## Documentation and resources
 
-- Upstream app code repository: <https://github.com/strukturag/nextcloud-spreed-signaling>
+- Upstream app code repository: <https://github.com/strukturag/nextcloud-signaling>
 - YunoHost Store: <https://apps.yunohost.org/app/nextcloud-signaling>
 - Report a bug: <https://github.com/YunoHost-Apps/nextcloud-signaling_ynh/issues>
 

@@ -19,7 +19,7 @@ Il NE doit PAS être modifié à la main.
 Ceci est une fausse description des fonctionalités de l'app
 
 
-**Version incluse :** 2.0.0~ynh1
+**Version incluse :** 2.0.0~ynh2
 
 ## Captures d’écran
 
@@ -27,7 +27,7 @@ Ceci est une fausse description des fonctionalités de l'app
 
 ## Documentations et ressources
 
-- Dépôt de code officiel de l’app : <https://github.com/strukturag/nextcloud-spreed-signaling>
+- Dépôt de code officiel de l’app : <https://github.com/strukturag/nextcloud-signaling>
 - YunoHost Store : <https://apps.yunohost.org/app/nextcloud-signaling>
 - Signaler un bug : <https://github.com/YunoHost-Apps/nextcloud-signaling_ynh/issues>
 
