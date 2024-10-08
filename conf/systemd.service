@@ -13,7 +13,7 @@ StandardError=inherit
 Restart=on-failure
 ConfigurationDirectory=__APP__
 ConfigurationDirectoryMode=500
-ExecPaths=__INSTALL_DIR__/bin/signaling __INSTALL_DIR__
+ExecPaths=__INSTALL_DIR__/bin/signaling __INSTALL_DIR__ /usr/lib/
 
 # Sandboxing options to harden security
 # Details for these options: https://www.freedesktop.org/software/systemd/man/systemd.exec.html
