@@ -48,7 +48,7 @@ services = ["__APP__"]
         
         [main.turn.turn_secret]
         ask.en = "TURN secret"
-        type = "password"
+        type = "string"
         bind = "apikey>secret:/etc/__APP__/server.conf"
         help = "The shared secret to use for generating TURN credentials. This must be the same as on the TURN server."
         redact = true
