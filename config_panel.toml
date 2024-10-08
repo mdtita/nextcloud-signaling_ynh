@@ -18,10 +18,14 @@ services = ["__APP__"]
     [main.secret]
     optional = false
         
+        [main.secret.get_secrets_info]
+        ask.en = "Click here to get secrets to configure in your nextcloud instances (check the history bottom bar after clicking on the button...)"
+        type = "alert"
+        style = "info"
+        
         [main.secret.get_secrets]
         ask.en = "Display secrets"
         type = "button"
-        help = "Click here to get secrets to configure in your nextcloud instances"
 
     [main.turn]
     name.en = "TURN configuration"
@@ -44,7 +48,7 @@ services = ["__APP__"]
         
         [main.turn.turn_secret]
         ask.en = "TURN secret"
-        type = "string"
+        type = "password"
         bind = "apikey>secret:/etc/__APP__/server.conf"
         help = "The shared secret to use for generating TURN credentials. This must be the same as on the TURN server."
         redact = true
