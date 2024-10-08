@@ -53,7 +53,7 @@ set__backends_urls() {
             ynh_app_setting_set --key=$varname --value=${!varname}
         fi
     done <<< "$backends_urls"
-    ynh_add_config --jinja --template="server.conf" --destination="/etc/$app/server.conf"
+    ynh_config_add --jinja --template="server.conf" --destination="/etc/$app/server.conf"
 }
 #=================================================
 # SPECIFIC ACTIONS
