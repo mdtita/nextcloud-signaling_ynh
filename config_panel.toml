@@ -14,11 +14,14 @@ services = ["__APP__"]
         type = "text"
         example = "https://cloud.example.com"
         help = "List one Nextcloud instances by line to allow its to use this signaling server"
+    
+    [main.secret]
+    optional = false
         
-#        [main.nextcloud.get_secrets]
-#        ask.en = "Display secrets"
-#        type = "button"
-#        help = "Click here to get secrets to configure in your nextcloud instances"
+        [main.secret.get_secrets]
+        ask.en = "Display secrets"
+        type = "button"
+        help = "Click here to get secrets to configure in your nextcloud instances"
 
     [main.turn]
     name.en = "TURN configuration"

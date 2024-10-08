@@ -13,8 +13,10 @@ source /usr/share/yunohost/helpers
 
 hash_key=$(ynh_string_random --length=64)
 block_key=$(ynh_string_random --length=32)
+shared_secret=$(ynh_string_random --length=64)
 ynh_app_setting_set --key=hash_key --value=$hash_key
 ynh_app_setting_set --key=block_key --value=$block_key
+ynh_app_setting_set --key=shared_secret --value=$shared_secret
 
 # Backend password generation
 while IFS= read -r backend_url
