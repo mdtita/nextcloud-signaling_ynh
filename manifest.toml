@@ -3,16 +3,16 @@
 packaging_format = 2
 
 id = "nextcloud-signaling"
-name = "Nextcloud Talk signaling server"
+name = "Nextcloud Signaling"
 description.en = "Standalone signaling server in order to meet more than 3 persons onto Nextcloud Talk"
-description.fr = "Expliquez en *quelques* (10~15) mots l'utilité de l'app ou ce qu'elle fait (l'objectif est de donner une idée grossière pour des utilisateurs qui naviguent dans un catalogue de 100+ apps)"
+description.fr = "Serveur de signalisation autonome pour rencontrer plus de 3 personnes sur Nextcloud Talk"
 
 version = "2.0.0~ynh2"
 
 maintainers = ["ljf"]
 
 [upstream]
-license = "AGPL-3.0" 
+license = "AGPL-3.0"
 code = "https://github.com/strukturag/nextcloud-signaling"
 
 [integration]
@@ -106,4 +106,4 @@ ram.runtime = "50M"
     [resources.apt]
     # This will automatically install/uninstall the following apt packages
     # and implicitly define the $phpversion setting as 8.0 (if phpX.Y-foobar dependencies are listed)
-    packages = "automake build-essential python3 protobuf-compiler nats-server janus"
+    packages = "automake, build-essential, python3, protobuf-compiler, nats-server, janus"
