@@ -27,7 +27,7 @@ Improve performances and reliability of Nextcloud Talk. You should be able to ma
 
 ## Documentaciones y recursos
 
-- Repositorio del código fuente oficial de la aplicación : <https://github.com/strukturag/nextcloud-signaling>
+- Repositorio del código fuente oficial de la aplicación : <https://github.com/strukturag/nextcloud-spreed-signaling>
 - Catálogo YunoHost: <https://apps.yunohost.org/app/nextcloud-signaling>
 - Reportar un error: <https://github.com/YunoHost-Apps/nextcloud-signaling_ynh/issues>
 

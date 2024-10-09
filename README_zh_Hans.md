@@ -27,7 +27,7 @@ Improve performances and reliability of Nextcloud Talk. You should be able to ma
 
 ## 文档与资源
 
-- 上游应用代码库： <https://github.com/strukturag/nextcloud-signaling>
+- 上游应用代码库： <https://github.com/strukturag/nextcloud-spreed-signaling>
 - YunoHost 商店： <https://apps.yunohost.org/app/nextcloud-signaling>
 - 报告 bug： <https://github.com/YunoHost-Apps/nextcloud-signaling_ynh/issues>
 

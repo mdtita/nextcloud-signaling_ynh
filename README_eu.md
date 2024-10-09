@@ -27,7 +27,7 @@ Improve performances and reliability of Nextcloud Talk. You should be able to ma
 
 ## Dokumentazioa eta baliabideak
 
-- Jatorrizko aplikazioaren kode-gordailua: <https://github.com/strukturag/nextcloud-signaling>
+- Jatorrizko aplikazioaren kode-gordailua: <https://github.com/strukturag/nextcloud-spreed-signaling>
 - YunoHost Denda: <https://apps.yunohost.org/app/nextcloud-signaling>
 - Eman errore baten berri: <https://github.com/YunoHost-Apps/nextcloud-signaling_ynh/issues>
 

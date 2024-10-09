@@ -27,7 +27,7 @@ Ceci est une fausse description des fonctionalités de l'app
 
 ## Documentations et ressources
 
-- Dépôt de code officiel de l’app : <https://github.com/strukturag/nextcloud-signaling>
+- Dépôt de code officiel de l’app : <https://github.com/strukturag/nextcloud-spreed-signaling>
 - YunoHost Store : <https://apps.yunohost.org/app/nextcloud-signaling>
 - Signaler un bug : <https://github.com/YunoHost-Apps/nextcloud-signaling_ynh/issues>
 
