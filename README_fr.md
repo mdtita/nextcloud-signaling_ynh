@@ -16,7 +16,7 @@ Il NE doit PAS être modifié à la main.
 
 ## Vue d’ensemble
 
-Ceci est une fausse description des fonctionalités de l'app
+Améliorez les performances et la fiabilité de Nextcloud Talk. Vous devriez pouvoir passer des appels vidéo avec plus de 3 personnes.
 
 
 **Version incluse :** 2.0.0~ynh2
