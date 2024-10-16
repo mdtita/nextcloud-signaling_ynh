@@ -1,9 +1,5 @@
 #!/bin/bash
 
-#=================================================
-# IMPORT GENERIC HELPERS
-#=================================================
-
 source _common.sh
 source /usr/share/yunohost/helpers
 
@@ -17,29 +13,13 @@ ynh_systemctl --service="janus" --action="stop"
 ynh_systemctl --service="nats-server" --action="stop"
 
 #=================================================
-# ENSURE DOWNWARD COMPATIBILITY
-#=================================================
-#ynh_script_progression "Ensuring downward compatibility..."
-
-### N.B. : the following setting migration snippets are provided as *EXAMPLES*
-### of what you may want to do in some cases (e.g. a setting was not defined on
-### some legacy installs and you therefore want to initiaze stuff during upgrade)
-
-# If db_name doesn't exist, create it
-# ynh_app_setting_set_default --key=db_name --value="$(ynh_sanitize_dbid --db_name=$app)"
-
-# If install_dir doesn't exist, create it
-# ynh_app_setting_set_default --key=install_dir --value="/var/www/$app"
-
-#=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
 ynh_script_progression "Upgrading source files..."
 
-# Download, check integrity, uncompress and patch the source from manifest.toml
 ynh_setup_source --dest_dir="$install_dir" --full_replace
 
-chown -R "$app:www-data" "$install_dir"
+chown -R "$app:$app" "$install_dir"
 
 #=================================================
 # BUILD
@@ -87,7 +67,6 @@ chown -R "nats:nats" "/etc/nats-server.conf"
 #=================================================
 ynh_script_progression "Upgrading system configurations related to $app..."
 
-
 ynh_config_add_nginx
 
 ynh_config_add_systemd
@@ -97,8 +76,6 @@ yunohost service add "nats-server" --description="Nats server for nextcloud talk
 yunohost service add "$app" --description="Signaling server for nextcloud talk" --log="/var/log/$app/$app.log"
 
 ynh_config_add_logrotate
-
-#ynh_config_add_fail2ban --logpath="/var/log/nginx/${domain}-error.log" --failregex="Regex to match into the log for a failed login"
 
 #=================================================
 # START SYSTEMD SERVICE
