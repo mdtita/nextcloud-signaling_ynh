@@ -45,7 +45,7 @@ set__backends_urls() {
 
     # Backend password generation
     while IFS= read -r backend_url
-    do 
+    do
         local backend_id=$(echo $backend_url | sed s@^https://@@ | sed 's/[.-]/_/g' | sed s@/@_@g)
         if [[ "$(ynh_app_setting_get --key=pwd__${backend_id})" == "" ]]
         then
@@ -59,14 +59,17 @@ set__backends_urls() {
 #=================================================
 # SPECIFIC ACTIONS
 #=================================================
+#run__get_secrets() {
+#    local backends=$(grep -E '^backends\s+=\s+' /etc/$app/server.conf | cut -d= -f2 | sed 's/ //g')
+#    for backend in ${backends//,/ }
+#    do
+#        sed -n '/\['${backend}'\]/,$p' /etc/$app/server.conf | grep -E -v "^(#|$)" | grep -m1 -E 'url\s+=\s+' | cut -d= -f2 | xargs >&$YNH_STDINFO
+#        sed -n '/\['${backend}'\]/,$p' /etc/$app/server.conf | grep -E -v "^(#|$)" | grep -m1 -E 'secret\s+=\s+' | cut -d= -f2 | xargs >&$YNH_STDINFO
+#    done
+#}
 run__get_secrets() {
-    local backends=$(grep -E '^backends\s+=\s+' /etc/$app/server.conf | cut -d= -f2 | sed 's/ //g')
-    for backend in ${backends//,/ }
-    do
-        sed -n '/\['${backend}'\]/,$p' /etc/$app/server.conf | grep -E -v "^(#|$)" | grep -m1 -E 'url\s+=\s+' | cut -d= -f2 | xargs >&$YNH_STDINFO
-        sed -n '/\['${backend}'\]/,$p' /etc/$app/server.conf | grep -E -v "^(#|$)" | grep -m1 -E 'secret\s+=\s+' | cut -d= -f2 | xargs >&$YNH_STDINFO
-    done
+    echo "🔐 Displaying dummy secrets for debug..." >&$YNH_STDINFO
+    echo "signaling_secret = test123" >&$YNH_STDINFO
 }
-
 #=================================================
 ynh_app_config_run "$1"
