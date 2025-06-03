@@ -61,11 +61,11 @@ ram.runtime = "50M"
     [resources.sources]
 
     [resources.sources.main]
-    url = "https://github.com/strukturag/nextcloud-spreed-signaling/releases/download/v2.0.0/nextcloud-spreed-signaling-v2.0.0.tar.gz"
-    sha256 = "3be2e2f4e8c5620766bdb99317243d7e8533e1cc319d328684bf031c4b9c0025"
+    url = "https://github.com/strukturag/nextcloud-spreed-signaling/releases/download/v2.0.3/nextcloud-spreed-signaling-v2.0.3.tar.gz"
+    sha256 = "2b76556d3a551d2890756156d91878568f5fdbc0f6906a002621343466962200"
 
     # autoupdate.strategy = "latest_github_tag"
-    
+
     [resources.system_user]
     home = "/var/www/__APP__"
 
