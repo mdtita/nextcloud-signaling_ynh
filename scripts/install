@@ -38,12 +38,8 @@ chown -R "$app:$app" "$install_dir"
 ynh_script_progression "Building go nextcloud signaling server..."
 
 ynh_go_install
-if [ ! -f /etc/profile.d/goenv.sh ]; then
-    echo 'export PATH="/opt/goenv/bin:$PATH"' > /etc/profile.d/goenv.sh
-    echo 'eval "$(goenv init -)"' >> /etc/profile.d/goenv.sh
-fi
-chmod u+x /etc/profile.d/goenv.sh
-source /etc/profile.d/goenv.sh
+export PATH="/opt/goenv/bin:$PATH"
+eval "$(goenv init -)"
 
 GOCACHE=/opt/goenv/cache
 export GOCACHE
