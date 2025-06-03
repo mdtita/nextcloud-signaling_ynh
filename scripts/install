@@ -39,7 +39,10 @@ ynh_script_progression "Building go nextcloud signaling server..."
 
 ynh_go_install
 export PATH="/opt/goenv/bin:$PATH"
-eval "$(goenv init -)"
+export PATH="/opt/goenv/versions/$go_version/bin:$PATH"
+export PATH="$PATH:/opt/goenv/shims"
+export GOENV_SHELL=bash
+command goenv rehash 2>/dev/null
 
 GOCACHE=/opt/goenv/cache
 export GOCACHE
