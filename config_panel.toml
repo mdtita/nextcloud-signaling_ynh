@@ -24,11 +24,8 @@ services = ["__APP__"]
         style = "info"
 
         [main.secret.get_secrets]
-        type = "button"
         ask.en = "Display secrets"
-        action = "get_secrets"
-
-
+        type = "button"
 
     [main.turn]
     name.en = "TURN configuration"

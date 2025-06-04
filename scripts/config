@@ -68,14 +68,43 @@ set__backends_urls() {
 #    done
 #}
 run__get_secrets() {
-    exec 7>&1
-    local outfd="${YNH_STDINFO:-7}"
+    # Create temporary file to store results
+    local tmp_file=$(mktemp)
 
-    echo "🔐 Signaling secrets:" >&$outfd
-    echo "" >&$outfd
-    echo "signaling_secret = test123" >&$outfd
-    echo "" >&$outfd
-    echo "Click OK to dismiss." >&$outfd
+    # Write header to file
+    echo "🔐 Nextcloud Signaling Secrets:" >> "$tmp_file"
+    echo "" >> "$tmp_file"
+
+    # Get backends list
+    local backends=$(grep -E '^backends\s+=\s+' /etc/$app/server.conf | cut -d= -f2 | sed 's/ //g')
+
+    # For each backend, get URL and secret
+    for backend in ${backends//,/ }
+    do
+        local url=$(sed -n "/\\[$backend\\]/,/\\[/p" /etc/$app/server.conf | grep -E -v "^(#|$|\[)" | grep -m1 -E 'url\s+=\s+' | cut -d= -f2 | xargs)
+        local secret=$(sed -n "/\\[$backend\\]/,/\\[/p" /etc/$app/server.conf | grep -E -v "^(#|$|\[)" | grep -m1 -E 'secret\s+=\s+' | cut -d= -f2 | xargs)
+
+        echo "Backend: $backend" >> "$tmp_file"
+        echo "URL: $url" >> "$tmp_file"
+        echo "Secret: $secret" >> "$tmp_file"
+        echo "" >> "$tmp_file"
+    done
+
+    # Add shared secret from server.conf
+    local shared_secret=$(grep -E '^shared_secret\s+=\s+' /etc/$app/server.conf | cut -d= -f2 | xargs)
+    if [ -n "$shared_secret" ]; then
+        echo "Shared Secret: $shared_secret" >> "$tmp_file"
+        echo "" >> "$tmp_file"
+    fi
+
+    # Display the secrets using YunoHost's helper
+    cat "$tmp_file" >&2
+
+    # Clean up
+    rm "$tmp_file"
+
+    # Return success
+    return 0
 }
 #=================================================
 ynh_app_config_run "$1"
