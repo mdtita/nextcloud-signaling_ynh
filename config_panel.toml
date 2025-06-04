@@ -14,24 +14,28 @@ services = ["__APP__"]
         type = "text"
         example = "https://cloud.example.com"
         help = "List one Nextcloud instances by line to allow its to use this signaling server"
-    
+
     [main.secret]
     optional = false
-        
+
         [main.secret.get_secrets_info]
         ask.en = "Click here to get secrets to configure in your nextcloud instances (check the history bottom bar after clicking on the button...)"
         type = "alert"
         style = "info"
-        
+
         [main.secret.get_secrets]
         ask.en = "Display secrets"
         type = "button"
+        action = "get_secrets"
+        dialog_type = "info"
+
+
 
     [main.turn]
     name.en = "TURN configuration"
     services = ["__APP__"]
     optional = false
-        
+
         [main.turn.turn_endpoints]
         ask.en = "TURN server endpoints"
         type = "string"
@@ -40,12 +44,12 @@ services = ["__APP__"]
         help = "You can fill several endpoints like this `turn:domain.tld:3478?transport=udp,turn:domain.tld:3478?transport=tcp`"
         pattern.regexp = '^turns?:'
         pattern.error = "Please follow this format: turn:domain.tld:3478?transport=udp,turn:domain.tld:3478?transport=tcp"
-        
+
         [main.turn.turn_api_key]
         ask.en = "TURN API key"
         type = "string"
         bind = "apikey:/etc/__APP__/server.conf"
-        
+
         [main.turn.turn_secret]
         ask.en = "TURN secret"
         type = "string"

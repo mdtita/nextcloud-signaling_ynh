@@ -68,8 +68,14 @@ set__backends_urls() {
 #    done
 #}
 run__get_secrets() {
-    echo "🔐 Displaying dummy secrets for debug..." >&$YNH_STDINFO
-    echo "signaling_secret = test123" >&$YNH_STDINFO
+    exec 7>&1
+    local outfd="${YNH_STDINFO:-7}"
+
+    echo "🔐 Signaling secrets:" >&$outfd
+    echo "" >&$outfd
+    echo "signaling_secret = test123" >&$outfd
+    echo "" >&$outfd
+    echo "Click OK to dismiss." >&$outfd
 }
 #=================================================
 ynh_app_config_run "$1"
