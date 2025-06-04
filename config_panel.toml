@@ -24,10 +24,9 @@ services = ["__APP__"]
         style = "info"
 
         [main.secret.get_secrets]
-        ask.en = "Display secrets"
         type = "button"
+        ask.en = "Display secrets"
         action = "get_secrets"
-        dialog_type = "info"
 
 
 
